@@ -35,7 +35,7 @@ public class Program {
 			while(hasId(listOfEmployee,id)) {
 				
 				// System.out.println("Debugging");
-				System.out.println("Enter new id please: ");
+				System.out.print("Enter new id please: ");
 				id = sc.nextInt();
 			}
 			
@@ -63,7 +63,24 @@ public class Program {
 				Employee employee = new EmployeeProgrammer(name, salary, id);
 				listOfEmployee.add(employee);
 			}
+			
+			System.out.println();
 		}
+		
+		System.out.print("Enter the id to increase salary: ");
+		int idToIncrease = sc.nextInt();
+		
+		
+		System.out.println();
+		
+		verifyToIncreaseSalary(listOfEmployee, idToIncrease);
+		
+		System.out.println();
+		
+		showListOfEmployees(listOfEmployee);
+		
+		
+		
 		
 		sc.close();
 	}
@@ -73,6 +90,34 @@ public class Program {
 		Employee emp = list.stream().filter(obj -> obj.getId().equals(id)).findFirst().orElse(null);
 		
 		return emp != null;
+	}
+	
+	public static void verifyToIncreaseSalary(List<Employee> list, Integer id) {
+		
+		Employee employee = null;
+		
+		for(Employee object: list) {
+			
+			if(object.getId().equals(id)) {
+				employee = object;
+			}
+		}
+		
+		
+		if(employee != null) {
+			System.out.println("Successfull salary increase");
+			employee.increaseSalary();
+		}
+		else {
+			System.out.println("id not exist");
+		}
+		
+	}
+	
+	public static void showListOfEmployees(List<Employee> list) {
+		for(Employee employee: list) {
+			System.out.println(employee.toString());
+		}
 	}
 
 }
