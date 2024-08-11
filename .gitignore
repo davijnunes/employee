@@ -1,0 +1,16 @@
+# Bytecode
+*.class
+
+# Logs
+*.log
+
+# Diretórios de build
+/build/
+/target/
+
+# Dependências
+*.jar
+*.war
+
+# Arquivos de configuração
+config.properties
