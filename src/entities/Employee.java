@@ -52,5 +52,14 @@ public abstract class Employee {
 	
 	public abstract void  increaseSalary();
 	
+	@Override
+	public String toString() {
+		return "Id: " + id
+				+ ", name: "
+				+ name
+				+ ", salary: $ " 
+				+ String.format("%.2f", getSalary());
+	}
+	
 
 }
